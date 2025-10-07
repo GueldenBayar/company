@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="www.guelden.web.bbq" id="723f829e-19ea-475e-b17d-06880ec7df7a" port="22" nameFormat="DESCRIPTIVE" username="gue" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="68a10f66-3584-4b11-9247-55a2ea4f2460" name="company-linux" url="http://www.company.guelden.web.bbq">
+        <fileTransfer rootFolder="/var/www/company" accessType="SFTP" host="www.guelden.web.bbq" port="22" sshConfigId="723f829e-19ea-475e-b17d-06880ec7df7a" sshConfig="gue@www.guelden.web.bbq:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" isUseSudo="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
