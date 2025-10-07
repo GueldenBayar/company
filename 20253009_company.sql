@@ -24,3 +24,19 @@ CREATE DATABASE mycompany;
            ('moritz', 'müller'),
            ('kilian', 'ludwig'),
            ('christian', 'bock');
+
+
+CREATE TABLE department (
+
+                            id INT AUTO_INCREMENT PRIMARY KEY,
+                            department_name VARCHAR(255)
+);
+
+INSERT INTO department (department_name)
+VALUES
+    ('Accounting'),
+    ('Human Resources'),
+    ('IT'),
+    ('Research and Development'),
+    ('Design');
+

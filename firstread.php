@@ -25,13 +25,15 @@ if (isset($_GET['delete_id'])) {
     $conn->exec("UPDATE employee SET id = (@count := @count + 1) ORDER BY id;");
     $conn->exec("ALTER TABLE employee AUTO_INCREMENT = 1;");
 
-    echo "<p style='color:red; text-align:center;'>❌ Mitarbeiter mit ID $id wurde gelöscht.</p>";
+    echo "<p style='color:red; text-align:center;'>Mitarbeiter mit ID $id wurde gelöscht.</p>";
 }
 
 // Alle Mitarbeiter abrufen
 $sql = "SELECT * FROM employee";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
+
+//PDO::FETCH_ASSOC -->gib als assoziiatives array zurück
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!doctype html>

@@ -7,10 +7,10 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if (isset($_POST['firstname']) && isset($_POST['lastname'])) {
     $stmt = $conn->prepare("INSERT INTO employee (fname, lname) VALUES (:fname, :lname)");
     $stmt->execute([
-        ':fname' => $_POST['firstname'],
+        ':fname' => $_POST['firstname'], #$stmt = bindParam(':fname', $fname); $stmt = bindParam(':lname', $lname);
         ':lname' => $_POST['lastname']
     ]);
-    echo "<p style='color:green;'>✅ Neuer Employee wurde hinzugefügt!</p>";
+    echo "<p style='color:green;'>New Employee successfully added!</p>";
 }
 //echo "<pre>";
 //if($_SERVER["REQUEST_METHOD"] === 'GET'){
@@ -21,7 +21,7 @@ if (isset($_POST['firstname']) && isset($_POST['lastname'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Neuer Employee</title>
+    <title>New Employee</title>
 </head>
 <body>
 <h1>Neuen Employee hinzufügen</h1>
