@@ -32,10 +32,10 @@ $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!doctype html>
 <html lang="de">
-<head><meta charset="UTF-8"><title>Abteilungsliste</title></head>
+<head><meta charset="UTF-8"><title>Abteilungsliste💘💘</title></head>
 <body>
-<h1 style="text-align:center;">Abteilungen</h1>
-<p style="text-align:center;"><a href="deptcreate.php">➕ Neue Abteilung hinzufügen</a></p>
+<h1 style="text-align:center;">Abteilungen🦄🌈</h1>
+<p style="text-align:center;"><a href="deptcreate.php">🌞 Neue Abteilung hinzufügen</a></p>
 <?= $data ? createTable($data) : "<p style='text-align:center;'>Keine Abteilungen gefunden.</p>" ?>
 </body>
 </html>
