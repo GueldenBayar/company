@@ -1,24 +1,21 @@
 <?php
-$conn = new PDO('mysql:host=localhost;dbname=company;charset=utf8mb4', 'phpstorm', '123456');
+$conn = new PDO('mysql:host=localhost;dbname=mycompany;charset=utf8mb4', 'codingstorm', 'passwort');
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$id = (int)($_GET['id'] ?? 0);
-$stmt = $conn->prepare('SELECT * FROM employees WHERE id = ?');
-$stmt->execute([$id]);
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-if (!$row) {
-    die("Mitarbeiter nicht gefunden.");
-}
+$id = $_GET['id'] ?? null;
+if (!$id) exit('ID fehlt');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $first = $_POST['firstname'];
-    $last = $_POST['lastname'];
-    $stmt = $conn->prepare('UPDATE employees SET firstname = ?, lastname = ? WHERE id = ?');
-    $stmt->execute([$first, $last, $id]);
+    $stmt = $conn->prepare('UPDATE employees SET fname=?, lname=? WHERE id=?');
+    $stmt->execute([$_POST['fname'], $_POST['lname'], $id]);
     header('Location: firstread.php');
     exit;
 }
+
+$stmt = $conn->prepare('SELECT * FROM employees WHERE id=?');
+$stmt->execute([$id]);
+$employee = $stmt->fetch(PDO::FETCH_ASSOC);
+if (!$employee) exit('Mitarbeiter nicht gefunden');
 ?>
 <!doctype html>
 <html lang="de">
@@ -26,12 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 <h1 style="text-align:center;">Mitarbeiter bearbeiten</h1>
 <form method="post" style="text-align:center;">
-    <label>Vorname: </label>
-    <input name="firstname" value="<?= htmlspecialchars($row['firstname']) ?>" required><br><br>
-    <label>Nachname: </label>
-    <input name="lastname" value="<?= htmlspecialchars($row['lastname']) ?>" required><br><br>
-    <button type="submit">Speichern</button>
+    Vorname: <input type="text" name="fname" value="<?= htmlspecialchars($employee['fname'] ?? '') ?>" required><br><br>
+    Nachname: <input type="text" name="lname" value="<?= htmlspecialchars($employee['lname'] ?? '') ?>" required><br><br>
+    <button type="submit">Aktualisieren</button>
 </form>
-<p style="text-align:center;"><a href="firstread.php">⬅️ Zurück</a></p>
 </body>
 </html>

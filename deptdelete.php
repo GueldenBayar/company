@@ -4,8 +4,8 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $id = $_GET['id'] ?? null;
 if ($id) {
-    $stmt = $conn->prepare('DELETE FROM employees WHERE id=?');
+    $stmt = $conn->prepare('DELETE FROM department WHERE id=?');
     $stmt->execute([$id]);
 }
-header('Location: firstread.php');
+header('Location: deptread.php');
 exit;
