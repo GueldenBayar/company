@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bindParam(':hiring', $hiring, PDO::PARAM_BOOL);
     $stmt->bindParam(':work_mode', $_POST['work_mode'], PDO::PARAM_STR);
     $stmt->execute();
-    header('Location: deptread.php');
+    header('Location: read_department.php');
     exit;
 }
 ?>
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </fieldset><br><br>
 
     <button type="submit">Speichern</button><br><br>
-    <a href="deptread.php">Zurück zur Übersicht</a>
+    <a href="read_department.php">Zurück zur Übersicht</a>
 </form>
 </body>
 </html>

@@ -7,5 +7,5 @@ if ($id) {
     $stmt = $conn->prepare('DELETE FROM department WHERE id=?');
     $stmt->execute([$id]);
 }
-header('Location: deptread.php');
+header('Location: read_department.php');
 exit;

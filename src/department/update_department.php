@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bindParam(':work_mode', $_POST['work_mode'], PDO::PARAM_STR);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
-    header('Location: deptread.php');
+    header('Location: read_department.php');
     exit;
 }
 
@@ -50,7 +50,7 @@ if (!$department) exit('Abteilung nicht gefunden 😢');
     </fieldset><br><br>
 
     <button type="submit">Aktualisieren</button><br><br>
-    <a href="deptread.php">Zurück zur Übersicht</a>
+    <a href="read_department.php">Zurück zur Übersicht</a>
 </form>
 </body>
 </html>

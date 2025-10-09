@@ -8,7 +8,7 @@ if (!$id) exit('ID fehlt');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $conn->prepare('UPDATE employees SET fname=?, lname=? WHERE id=?');
     $stmt->execute([$_POST['fname'], $_POST['lname'], $id]);
-    header('Location: firstread.php');
+    header('Location: read_employee.php');
     exit;
 }
 

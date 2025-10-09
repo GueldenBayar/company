@@ -5,7 +5,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $conn->prepare('INSERT INTO employees (fname, lname) VALUES (?, ?)');
     $stmt->execute([$_POST['fname'], $_POST['lname']]);
-    header('Location: firstread.php');
+    header('Location: read_employee.php');
     exit;
 }
 ?>

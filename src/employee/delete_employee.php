@@ -7,5 +7,5 @@ if ($id) {
     $stmt = $conn->prepare('DELETE FROM employees WHERE id=?');
     $stmt->execute([$id]);
 }
-header('Location: firstread.php');
+header('Location: read_employee.php');
 exit;

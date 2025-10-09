@@ -51,7 +51,7 @@ $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </style>
 <body>
 <h1 style="text-align:center;font-size: 40px;">🦄Mitarbeiter🌈</h1>
-<p style="text-align:center;font-size: 30px; font-weight: bold"><a href="firstcreate.php">🐒 Neuen Mitarbeiter hinzufügen🍌</a></p>
+<p style="text-align:center;font-size: 30px; font-weight: bold"><a href="create_employee.php">🐒 Neuen Mitarbeiter hinzufügen🍌</a></p>
 <?= $data ? createTable($data) : "<p style='text-align:center;'>😿Keine Mitarbeiter gefunden.</p>" ?>
 </body>
 </html>
