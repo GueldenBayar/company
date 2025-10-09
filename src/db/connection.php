@@ -7,7 +7,7 @@ function getConnection(): PDO
 {
     static $pdo = null;
     if ($pdo === null) {
-        $dsn = 'mysql:host=localhost;dbname=mycompany;charset=utf8mb4';
+        $dsn = 'mysql:host=10.101.105.110;dbname=mycompany;charset=utf8mb4';
         $user = 'codingstorm';
         $pass = 'passwort';
 

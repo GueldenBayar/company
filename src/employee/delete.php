@@ -8,7 +8,7 @@ if (!$id) exit('ID fehlt');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $conn->prepare('UPDATE employees SET fname=?, lname=? WHERE id=?');
     $stmt->execute([$_POST['fname'], $_POST['lname'], $id]);
-    header('Location: read_employee.php');
+    header('Location: /employee/read');
     exit;
 }
 
@@ -19,12 +19,15 @@ if (!$employee) exit('Mitarbeiter nicht gefunden');
 ?>
 <!doctype html>
 <html lang="de">
-<head><meta charset="UTF-8"><title>Mitarbeiter bearbeiten</title></head>
+<head>
+    <meta charset="UTF-8">
+    <title>Mitarbeiter bearbeiten</title>
+</head>
 <body>
 <h1 style="text-align:center;">Mitarbeiter bearbeiten</h1>
 <form method="post" style="text-align:center;">
-    Vorname: <input type="text" name="fname" value="<?= htmlspecialchars($employee['fname'] ?? '') ?>" required><br><br>
-    Nachname: <input type="text" name="lname" value="<?= htmlspecialchars($employee['lname'] ?? '') ?>" required><br><br>
+    Vorname: <input type="text" name="fname" value="<?= htmlspecialchars($employee['fname']) ?>" required><br><br>
+    Nachname: <input type="text" name="lname" value="<?= htmlspecialchars($employee['lname']) ?>" required><br><br>
     <button type="submit">Aktualisieren</button>
 </form>
 </body>

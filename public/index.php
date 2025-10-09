@@ -12,29 +12,37 @@ $base = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
 
 // Startseite
 if ($entity === '' || $entity === null) {
-    echo '<h1>Willkommen 👋</h1>';
+    echo '<h1>Welcome 👋</h1>';
     echo '<p><a href="' . $base . '/department/read">Zu den Abteilungen</a></p>';
+    echo '<p><a href="' . $base . '/employee/read">Zu den Mitarbeitern</a></p>';
     exit;
 }
 
-// Abteilungs-Routing
+// Routing für Departments
 if ($entity === 'department') {
     $path = __DIR__ . '/../src/department/';
-
     switch ($action) {
-        case 'create':
-            require $path . 'create.php';
-            break;
+        case 'create': require $path . 'create.php'; break;
         case 'read':
-        case '':
-            require $path . 'read.php';
-            break;
-        case 'update':
-            require $path . 'update.php';
-            break;
-        case 'delete':
-            require $path . 'delete.php';
-            break;
+        case '': require $path . 'read.php'; break;
+        case 'update': require $path . 'update.php'; break;
+        case 'delete': require $path . 'delete.php'; break;
+        default:
+            http_response_code(404);
+            echo '404 - Seite nicht gefunden';
+    }
+    exit;
+}
+
+// Routing für Employees
+if ($entity === 'employee') {
+    $path = __DIR__ . '/../src/employee/';
+    switch ($action) {
+        case 'create': require $path . 'create.php'; break;
+        case 'read':
+        case '': require $path . 'read.php'; break;
+        case 'update': require $path . 'update.php'; break;
+        case 'delete': require $path . 'delete.php'; break;
         default:
             http_response_code(404);
             echo '404 - Seite nicht gefunden';
