@@ -22,11 +22,21 @@ if ($entity === '' || $entity === null) {
 if ($entity === 'department') {
     $path = __DIR__ . '/../src/department/';
     switch ($action) {
-        case 'create': require $path . 'create.php'; break;
+        case 'create':
+            require $path . 'create.php';
+            break;
         case 'read':
-        case '': require $path . 'read.php'; break;
-        case 'update': require $path . 'update.php'; break;
-        case 'delete': require $path . 'delete.php'; break;
+        case '':
+            require $path . 'read.php';
+            break;
+        case 'update':
+            $id = $parts[2] ?? null;
+            require $path . 'update.php';
+            break;
+        case 'delete':
+            $id = $parts[2] ?? null;
+            require $path . 'delete.php';
+            break;
         default:
             http_response_code(404);
             echo '404 - Seite nicht gefunden';
@@ -38,11 +48,21 @@ if ($entity === 'department') {
 if ($entity === 'employee') {
     $path = __DIR__ . '/../src/employee/';
     switch ($action) {
-        case 'create': require $path . 'create.php'; break;
+        case 'create':
+            require $path . 'create.php';
+            break;
         case 'read':
-        case '': require $path . 'read.php'; break;
-        case 'update': require $path . 'update.php'; break;
-        case 'delete': require $path . 'delete.php'; break;
+        case '':
+            require $path . 'read.php';
+            break;
+        case 'update':
+            $id = $parts[2] ?? null; // 🔥 ID hier setzen!
+            require $path . 'update.php';
+            break;
+        case 'delete':
+            $id = $parts[2] ?? null; // 🔥 auch hier
+            require $path . 'delete.php';
+            break;
         default:
             http_response_code(404);
             echo '404 - Seite nicht gefunden';
@@ -52,3 +72,4 @@ if ($entity === 'employee') {
 
 http_response_code(404);
 echo '404 - Seite nicht gefunden';
+
