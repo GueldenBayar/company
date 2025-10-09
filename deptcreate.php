@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <h1 style="text-align:center;">Neue Abteilung hinzufügen</h1>
 
 <form method="post" style="text-align:center;">
-    Name: <input type="text" name="department_name" required><br><br>
+    <label>Name: <input type="text" name="department_name" required></label><br><br>
 
     <fieldset style="display:inline-block; text-align:left;">
         <legend>Hiring?</legend>
