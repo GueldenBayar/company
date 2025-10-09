@@ -12,7 +12,12 @@ function createTable(array $data): string
         $dept = htmlspecialchars($row['department_name'] ?? '');
 
         // Hiring anzeigen als ✅ / ❌
-        $hiring = isset($row['hiring']) && $row['hiring'] ? '✅ Yes' : '❌ No';
+        if (isset($row['hiring']) && $row['hiring']) {
+            $hiring = '✅ Yes';
+        } else {
+            $hiring = '❌ No';
+        }
+
 
         // Work mode hübsch mit Symbol
         $wm = $row['work_mode'] ?? '';
