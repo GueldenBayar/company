@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../db/connection.php';
+require_once __DIR__ . '/../db/database.php';
 $pdo = getConnection();
 
 $base = $base ?? rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
