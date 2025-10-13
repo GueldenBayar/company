@@ -1,5 +1,4 @@
 DROP DATABASE if exists mycompany;
-
 CREATE DATABASE mycompany;
     use mycompany;
 
@@ -27,7 +26,6 @@ CREATE DATABASE mycompany;
 
 
 CREATE TABLE department (
-
                             id INT AUTO_INCREMENT PRIMARY KEY,
                             department_name VARCHAR(255)
 );

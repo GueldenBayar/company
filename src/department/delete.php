@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../db/database.php';
-$pdo = getConnection();
+$pdo = dbcon();
 $base = $base ?? rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
 
 if ($id) {

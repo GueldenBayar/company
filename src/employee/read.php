@@ -1,8 +1,4 @@
 <?php
-// src/employee/read.php
-
-// Optional: Fehleranzeigen während der Entwicklung
-// ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
 
 $base = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
 
@@ -60,16 +56,26 @@ function createEmployeeTable(array $data, string $base): string
 <head>
     <meta charset="UTF-8">
     <title>💘 Mitarbeiterliste 🌷</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
     <style>
-        td { font-size: 20px; font-family: Arial, sans-serif; }
-        th { font-size: 25px; font-family: Arial, sans-serif; color: darkmagenta; }
-        a { text-decoration: none; color: blue; font-weight: bold; }
+        td { font-size: 20px; font-family: "Fira Code", sans-serif; }
+        th { font-size: 25px; font-family: "Fira Code", sans-serif; color: darkmagenta; }
+        a { text-decoration: none; color: blue;}
+
+        .fira-code-uni {
+                        font-family: "Fira Code", monospace;
+                        font-optical-sizing: auto;
+                        font-weight: 300;
+                        font-style: normal;
+                    }
     </style>
 </head>
 <body>
 <h1 style="text-align:center;font-size:40px;">🦄 Mitarbeiter 🌈</h1>
 <p style="text-align:center;font-size:30px;font-weight:bold;">
-    <a href="<?php echo $base; ?>/employee/create">🐒 Neuen Mitarbeiter hinzufügen 🍌</a>
+    <a href="<?php echo $base; ?>/employee/create">🐒 Neuen Mitarbeiter hinzufügen </a>
 </p>
 
 <div style="text-align:center;">

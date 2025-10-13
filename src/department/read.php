@@ -1,14 +1,31 @@
 <?php
 require_once __DIR__ . '/../db/database.php';
-$pdo = getConnection();
+$pdo = dbcon();
 $base = $base ?? rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
 
 $rows = $pdo->query('SELECT * FROM department ORDER BY id')->fetchAll();
 ?>
 <!doctype html>
 <html lang="de">
-<head><meta charset="utf-8"><title>Abteilungen</title></head>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <meta charset="utf-8"><title>Abteilungen</title></head>
+
 <style>
+
+    .fira-code-uni {
+                    font-family: "Fira Code", monospace;
+                    font-optical-sizing: auto;
+                    font-weight: 300;
+                    font-style: normal;
+                }
+
+    body {
+        font-family: "Fira Code";
+    }
+
 </style>
 <body>
 <h1>Abteilungen</h1>
