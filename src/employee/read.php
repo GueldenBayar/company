@@ -27,7 +27,6 @@ function createEmployeeTable(array $data, string $base): string
                 <th>ID</th>
                 <th>💘 Vorname</th>
                 <th>🌷 Nachname</th>
-                <th>Aktion</th>
               </tr>";
 
     foreach ($data as $i => $row) {
@@ -36,14 +35,11 @@ function createEmployeeTable(array $data, string $base): string
         $fname = htmlspecialchars($row['fname']);
         $lname = htmlspecialchars($row['lname']);
 
-        $html .= "<tr style='background-color:$color'>";
+        $viewUrl = "{$base}/employee/view/{$id}";
+        $html .= "<tr style='background-color:$color; cursor: pointer;' onclick=\"window.location.href='{$viewUrl}'\">";
         $html .= "<td>🌈{$id}</td>";
         $html .= "<td>🌴{$fname}</td>";
         $html .= "<td>🐩{$lname}</td>";
-        $html .= "<td>
-                    <a href='{$base}/employee/update/{$id}'>💫Update</a> |
-                    <a href='{$base}/employee/delete/{$id}' onclick=\"return confirm('Wirklich löschen?')\">☠️Delete</a>
-                  </td>";
         $html .= "</tr>";
     }
 
@@ -60,9 +56,11 @@ function createEmployeeTable(array $data, string $base): string
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
     <style>
+        body { font-family: "Fira Code", sans-serif;}
         td { font-size: 20px; font-family: "Fira Code", sans-serif; }
         th { font-size: 25px; font-family: "Fira Code", sans-serif; color: darkmagenta; }
         a { text-decoration: none; color: blue;}
+        tr:hover { background-color: #f0f0f0 !important;}
 
         .fira-code-uni {
                         font-family: "Fira Code", monospace;
@@ -75,7 +73,7 @@ function createEmployeeTable(array $data, string $base): string
 <body>
 <h1 style="text-align:center;font-size:40px;">🦄 Mitarbeiter 🌈</h1>
 <p style="text-align:center;font-size:30px;font-weight:bold;">
-    <a href="<?php echo $base; ?>/employee/create">🐒 Neuen Mitarbeiter hinzufügen </a>
+    <a href="<?php echo $base; ?>/employee/create">🐒 Neuen Mitarbeiter hinzufügen</a>
 </p>
 
 <div style="text-align:center;">

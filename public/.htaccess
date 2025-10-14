@@ -8,3 +8,8 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 # alle anderen URLs an index.php weiterleiten als ?url=...
 RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
+
+
+
+#RewriteRule ^employee/update/([0-9]+)$ firstupdate.php?id=$1 [L,QSA]
+#RewriteRule ^employee/delete/([0-9]+)$ firstdelete.php?id=$1 [L,QSA]

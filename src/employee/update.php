@@ -2,13 +2,15 @@
 $conn = new PDO('mysql:host=localhost;dbname=mycompany;charset=utf8mb4', 'codingstorm', 'passwort');
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$id = $_GET['id'] ?? null;
-if (!$id) exit('ID fehlt');
+//$id = $_GET['id'] ?? null;
+if (!$id) {
+    exit('ID fehlt');
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $conn->prepare('UPDATE employees SET fname=?, lname=? WHERE id=?');
     $stmt->execute([$_POST['fname'], $_POST['lname'], $id]);
-    header('Location: read.php');
+    header('Location: {$base}/read.php');
     exit;
 }
 

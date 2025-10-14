@@ -26,6 +26,9 @@ $rows = $pdo->query('SELECT * FROM department ORDER BY id')->fetchAll();
         font-family: "Fira Code";
     }
 
+    tr:hover {
+        background-color: #f0f0f0;
+    }
 </style>
 <body>
 <h1>Abteilungen</h1>
@@ -40,18 +43,14 @@ $rows = $pdo->query('SELECT * FROM department ORDER BY id')->fetchAll();
             <th>Name</th>
             <th>Hiring</th>
             <th>Work Mode</th>
-            <th>Aktion</th>
         </tr>
         <?php foreach ($rows as $r): ?>
-            <tr>
+            <?php ?>
+            <tr style="cursor: pointer;" onclick="window.location.href='<?= htmlspecialchars($base . '/department/view/' . $r['id']) ?>'">
                 <td><?= htmlspecialchars($r['id']) ?></td>
                 <td><?= htmlspecialchars($r['department_name']) ?></td>
                 <td><?= $r['hiring'] ? '✅ Yes' : '❌ No' ?></td>
                 <td><?= htmlspecialchars($r['work_mode']) ?></td>
-                <td>
-                    <a href="<?= htmlspecialchars($base . '/department/update/' . $r['id']) ?>">✏️ Bearbeiten</a> |
-                    <a href="<?= htmlspecialchars($base . '/department/delete/' . $r['id']) ?>" onclick="return confirm('Wirklich löschen?')">🗑️ Löschen</a>
-                </td>
             </tr>
         <?php endforeach; ?>
     </table>

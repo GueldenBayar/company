@@ -134,6 +134,10 @@ if ($entity === 'department') {
         case '':
             require $path . 'read.php';
             break;
+        case 'view':
+            $id = $parts[2] ?? null;
+            require $path . 'view.php';
+            break;
         case 'update':
             $id = $parts[2] ?? null;
             require $path . 'update.php';
@@ -144,7 +148,7 @@ if ($entity === 'department') {
             break;
         default:
             http_response_code(404);
-            echo '404 - Seite nicht gefunden';
+            echo '404 - Seite nicht gefunden😭';
     }
     exit;
 }
@@ -160,6 +164,8 @@ if ($entity === 'employee') {
         case '':
             require $path . 'read.php';
             break;
+        case 'view':
+            require $path . 'view.php';
         case 'update':
             $id = $parts[2] ?? null;
             require $path . 'update.php';
@@ -170,7 +176,7 @@ if ($entity === 'employee') {
             break;
         default:
             http_response_code(404);
-            echo '404 - Seite nicht gefunden';
+            echo '404 - Seite nicht gefunden😭';
     }
     exit;
 }

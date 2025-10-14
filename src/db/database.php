@@ -108,6 +108,8 @@ function update(int $id, string $name, bool $hiring, string $work_mode): bool
     return $stmt->execute([$name, $hiring, $work_mode, $id]);
 }
 
+
+
 /**
  * Löscht eine Abteilung anhand der ID
  *
