@@ -49,7 +49,7 @@ $rows = $pdo->query('SELECT * FROM department ORDER BY id')->fetchAll();
             <tr style="cursor: pointer;" onclick="window.location.href='<?= htmlspecialchars($base . '/department/view/' . $r['id']) ?>'">
                 <td><?= htmlspecialchars($r['id']) ?></td>
                 <td><?= htmlspecialchars($r['department_name']) ?></td>
-                <td><?= $r['hiring'] ? '✅ Yes' : '❌ No' ?></td>
+                <td><?= $r['hiring'] ? '🍀 Yes' : '☠️ No' ?></td>
                 <td><?= htmlspecialchars($r['work_mode']) ?></td>
             </tr>
         <?php endforeach; ?>

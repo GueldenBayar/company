@@ -166,6 +166,7 @@ if ($entity === 'employee') {
             break;
         case 'view':
             require $path . 'view.php';
+            break;
         case 'update':
             $id = $parts[2] ?? null;
             require $path . 'update.php';

@@ -67,7 +67,7 @@ if (!$employee && !$dbError) {
     <?php if ($dbError): ?>
     <h1 style="color: red;">Fehler</h1>
     <p><?= htmlspecialchars($dbError) ?></p>
-<?php else: ?>
+    <?php else: ?>
     <h1>🦄Mitarbeiter: <?= htmlspecialchars($employee['fname']) ?> <?= htmlspecialchars($employee['lname']) ?></h1>
 
     <p><strong>ID:</strong><?= htmlspecialchars($employee['id']) ?></p>
@@ -76,7 +76,7 @@ if (!$employee && !$dbError) {
 
     <hr>
 
-    <h3>Aktionen</h3>
+    <h3>Edit</h3>
     <p>
         <a href="<?= $base ?>/employee/update/<?= $employee['id'] ?>">💫 Update</a>
         <a href="<?= $base ?>/employee/delete/<?= $employee['id'] ?>" onclick="return confirm('wirklich löschen ?')">☠️ Delete</a>

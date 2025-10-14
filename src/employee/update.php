@@ -1,16 +1,18 @@
 <?php
+
+if (!$id) {
+    die('Ungültige ID ☠️');
+}
+
+$base = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
 $conn = new PDO('mysql:host=localhost;dbname=mycompany;charset=utf8mb4', 'codingstorm', 'passwort');
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-//$id = $_GET['id'] ?? null;
-if (!$id) {
-    exit('ID fehlt');
-}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $conn->prepare('UPDATE employees SET fname=?, lname=? WHERE id=?');
     $stmt->execute([$_POST['fname'], $_POST['lname'], $id]);
-    header('Location: {$base}/read.php');
+    header("Location: {$base}/employee/read");
     exit;
 }
 
@@ -23,7 +25,7 @@ if (!$employee) exit('Mitarbeiter nicht gefunden');
 <html lang="de">
 <head><meta charset="UTF-8"><title>Mitarbeiter bearbeiten</title></head>
 <body>
-<h1 style="text-align:center;">Mitarbeiter bearbeiten</h1>
+<!--<h1 style="text-align:center;">Mitarbeiter bearbeiten</h1>-->
 <form method="post" style="text-align:center;">
     Vorname: <input type="text" name="fname" value="<?= htmlspecialchars($employee['fname'] ?? '') ?>" required><br><br>
     Nachname: <input type="text" name="lname" value="<?= htmlspecialchars($employee['lname'] ?? '') ?>" required><br><br>
