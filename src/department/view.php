@@ -3,7 +3,7 @@ $pathParts = explode('/', $_SERVER['REQUEST_URI']);
 $id = end($pathParts); //holt letzten Teil der URL
 
 if (!is_numeric($id)) {
-    die("ungültige ID!");
+    die("Ungültige ID!");
 }
 
 $base = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
